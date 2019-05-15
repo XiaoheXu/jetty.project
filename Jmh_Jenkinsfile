@@ -51,9 +51,8 @@ stage("jmh-run") {
         sh "mkdir jmh_results"
         sh "${env.JAVA_HOME}/bin/java -jar $jmhJarPath -rff jmh_results/jmh_result.json -rf json"
         jmhReport 'jmh_results/jmh_result.json'
-        script {
-          currentBuild.description = "Build branch $branch with jdk $jdk"
-        }  
+        currentBuild.description = "Build branch $branch with jdk $jdk"
+
       }
     }
   }
